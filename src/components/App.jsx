@@ -19,7 +19,13 @@ export class App extends Component {
     return (
       <div className="wrapper">
         <h2 className="title-feedback">Please leave feedback</h2>
-        <button onClick={event.target.value} type="button" className="btn-good">
+        <button
+          onClick={evt => {
+            console.log('Cliked in btn-good', evt); // працює
+          }}
+          type="button"
+          className="btn-good"
+        >
           Good
         </button>
         <button
