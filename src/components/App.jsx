@@ -31,9 +31,33 @@ export class App extends Component {
     });
   };
 
+  countTotalFeedback = () => {
+    return Object.values(this.state).reduce(
+      (accumulator, currentValue) => accumulator + currentValue,
+      0
+    );
+  };
+
+  countPositiveFeedbackPercentage = () => {
+    return Math.round((this.state.good / this.countTotalFeedback()) * 100);
+  };
+
   render() {
+    const Total = this.countTotalFeedback();
+    const GoodPercentFeedback = this.countPositiveFeedbackPercentage();
+    console.log('this.state :>> ', this.state);
     return (
-      <div className="wrapper">
+      <div
+        style={{
+          height: '100vh',
+          display: 'block',
+          justifyContent: 'center',
+          alignItems: 'center',
+          fontSize: 30,
+          color: '#010101',
+        }}
+        className="wrapper"
+      >
         <h2 className="title-feedback">Please leave feedback</h2>
         <button
           onClick={this.changeOfStateGood}
@@ -70,11 +94,13 @@ export class App extends Component {
           <span className="number-bad">{this.state.bad}</span>
         </p>
         <p className="total">
-          Total:<span className="total-number">7</span>
+          Total:<span className="total-number">{Total}</span>
         </p>
         <p className="positive-feedback">
-          Positive feedback
-          <span className="positive-feedback-persent">43%</span>
+          Positive feedback:
+          <span className="positive-feedback-persent">
+            {GoodPercentFeedback}%
+          </span>
         </p>
       </div>
     );
