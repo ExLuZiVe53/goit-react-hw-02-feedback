@@ -3,6 +3,7 @@ import { Component } from 'react';
 import { Statistics } from './Statistics/Statistics';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Notification } from './Notification/Notification';
+import styles from './App.module.css';
 
 export class App extends Component {
   state = {
@@ -58,14 +59,15 @@ export class App extends Component {
 
     return (
       <div
-        style={{
-          height: '100vh',
-          display: 'block',
-          justifyContent: 'center',
-          alignItems: 'center',
-          fontSize: 40,
-          color: '#010101',
-        }}
+        // style={{
+        //   height: '100vh',
+        //   display: 'block',
+        //   justifyContent: 'center',
+        //   alignItems: 'center',
+        //   fontSize: 40,
+        //   color: '#010101',
+        // }}
+        className={styles.Wrapper}
       >
         <h2>Please leave feedback</h2>
         <FeedbackOptions
